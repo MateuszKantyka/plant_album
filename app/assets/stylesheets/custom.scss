@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#map {
+  width: 100%;
+  height: 400px;
+  background-color: grey;
+}
 
 
 /* mixins, variables, etc. */
