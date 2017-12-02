@@ -9,3 +9,19 @@ User.create!( name: 'Justyna Kawa',
               password: '1111',
               password_confirmation: '1111',
               admin: false)
+
+Mechanic.create!( name: "Nowak autoMechanic s.c."
+                  city: "Cięcina"
+                  post_code: "34-350"
+                  address: "Stawowa 23"
+                  rating: 4.6
+                  phone_number: "985 547 857"
+                  description: "Best mechanic in Cięcina" )
+
+Mechanic.create!( name: "Kowalski optimusPrime"
+                  city: "Żywiec"
+                  post_code: "34-350"
+                  address: "Inna 23"
+                  rating: 2.8
+                  phone_number: "254 547 778"
+                  description: "Make your car great again" )
