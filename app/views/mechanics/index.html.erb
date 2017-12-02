@@ -1,0 +1,10 @@
+
+<% @mechanics.each do |mechanic| %>
+  <div class="jumbotron">
+    <p> <%= mechanic.name %> </p>
+    <p><%= "#{mechanic.city}, #{mechanic.post_code}, #{mechanic.address}" %> </p>
+    <p>Phone: <%= mechanic.phone_number %> </p>
+    <p>Rating: <%= mechanic.rating %> </p>
+    <p> <%= link_to "More info", mechanic %> </p>
+  </div>
+<% end %>
