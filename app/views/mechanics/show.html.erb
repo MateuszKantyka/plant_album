@@ -1,8 +1,12 @@
 <div class="jumbotron">
-  <%=@mechanic.name %>
+  <p> <%= @mechanic.name %> </p>
+  <p><%= "#{@mechanic.city}, #{@mechanic.post_code}, #{@mechanic.address}" %> </p>
+  <p>Phone: <%= @mechanic.phone_number %> </p>
+  <p>Rating: <%= @mechanic.rating %> </p>
+  <p>Description: <%= @mechanic.description %> </p>
 </div>
-
-<h3>My Google Maps Demo</h3>
+<% if @mechanic.lat != nil || @mechanic.lng != nil %>
+<h3>Location:</h3>
 <div id="map"></div>
 <script>
   function initMap() {
@@ -20,3 +24,4 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfqLD8lqIDRMoG9jM7qOTaSdD075itZ-E&callback=initMap">
 </script>
+<% end %>
