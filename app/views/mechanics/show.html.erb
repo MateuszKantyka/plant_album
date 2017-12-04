@@ -25,3 +25,12 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfqLD8lqIDRMoG9jM7qOTaSdD075itZ-E&callback=initMap">
 </script>
 <% end %>
+
+<h1>Comments:</h1>
+
+<% @comment.each do |comment| %>
+  <div class="jumbotron">
+    <p> <%= comment.content %> </p>
+    <p> <%= comment.cost %> </p>
+  </div>
+<% end %>
