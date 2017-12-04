@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20171204214650) do
     t.integer "rating_general"
     t.integer "rating_cost"
     t.integer "rating_time"
-    t.integer "mechanic_id"
     t.integer "user_id"
+    t.integer "mechanic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mechanic_id"], name: "index_comments_on_mechanic_id"

@@ -7,7 +7,6 @@ class CreateComments < ActiveRecord::Migration[5.1]
       t.integer :rating_general
       t.integer :rating_cost
       t.integer :rating_time
-      t.integer :mechanic_id
       t.references :user, foreign_key: true
       t.references :mechanic, foreign_key: true
       t.timestamps
