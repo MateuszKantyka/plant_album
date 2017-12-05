@@ -1,0 +1,47 @@
+<h1>Comments:</h1>
+
+<% @comments.each do |comment| %>
+<div class="container">
+  <div class="jumbotron" center>
+    <%= comment.user.name%>
+    <%= comment.created_at.strftime("%F")%>
+    <br><br>
+    <table>
+      <tr>
+        <th>Genereal rating: </th>
+        <th>
+          <% comment.rating_general.times do %>
+           <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </th>
+      </tr>
+      <tr>
+        <th>Time rating: </th>
+        <th>
+          <% comment.rating_time.times do %>
+           <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </th>
+      </tr>
+      <tr>
+        <th>Cost rating: </th>
+        <th>
+          <% comment.rating_cost.times do %>
+           <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %> <br>
+        </th>
+      </tr>
+      <tr>
+        <th>Car model: </th>
+        <th><%= comment.car %> </th>
+      </tr>
+      <tr>
+        <th>Total cost:</th>
+        <th><%= comment.cost %> </th>
+      </tr>
+    </table>
+    <br>
+      <em> <b> <%= comment.content %> </b></em>
+  </div>
+</div>
+<% end %>
