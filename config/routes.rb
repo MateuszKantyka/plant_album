@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get  '/login',  to: 'sessions#new'
   post '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  post '/new_comment', to: 'comments#create'
+  post '/comment', to: 'comments#create'
+  delete '/comment', to: 'comments#destroy'
   resources :users
   resources :mechanics
 end

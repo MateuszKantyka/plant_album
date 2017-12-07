@@ -10,6 +10,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to request.referrer
+  end
+
   def comment_params
     params.require(:comment).permit(:content,:car,:cost, :rating_general,
                                  :rating_cost, :rating_time, :mechanic_id)

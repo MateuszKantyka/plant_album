@@ -41,7 +41,11 @@
       </tr>
     </table>
     <br>
-      <em> <b> <%= comment.content %> </b></em>
+    <em> <b> <%= comment.content %> </b></em>
+    <% if logged_in? && (comment.user_id == current_user.id  || current_user.admin) %>
+    <%= button_to  'Delete', { :controller => 'comments', :action => 'destroy', :id => comment.id},
+                             {:method => :delete, :remote => true} %>
+    <% end %>
   </div>
 </div>
 <% end %>
