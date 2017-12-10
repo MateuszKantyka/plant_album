@@ -1,8 +1,23 @@
 class UsersController < ApplicationController
-  before_action :admin_user, only: [:index]
+  before_action :admin_user, only: [:index, :edit, :update]
 
   def index
     @users = User.all
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to request.referrer
+    else
+      flash[:success] = "Error"
+      redirect_to request.referrer
+    end
   end
 
   def new

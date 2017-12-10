@@ -5,6 +5,6 @@
     <p>Admin = <%= user.admin %> </p>
     <p>Create =  <%= user.created_at %> </p>
     <p> <%= link_to "Delete", user, method: :delete %> </p>
-    <p> <%= link_to "Edit", '#' %> </p>
+    <p> <%= link_to "Edit", edit_user_path(user)%> </p>
   </div>
 <% end %>
