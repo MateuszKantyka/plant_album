@@ -3,9 +3,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      flash[:success] = "User successfully created"
+      flash[:success] = "Comment successfully created"
       redirect_to request.referrer
     else
+      flash[:danger] = "Fill in all fields"
       redirect_to request.referrer
     end
   end
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:success] = "Comment successfully destroyed"
     redirect_to request.referrer
   end
 

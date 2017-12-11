@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to request.referrer
     else
-      flash[:success] = "Error"
+      flash[:danger] = "Correct the field"
       redirect_to request.referrer
     end
   end
@@ -30,13 +30,15 @@ class UsersController < ApplicationController
       flash[:success] = "User successfully created"
       redirect_to @user
     else
-      render 'new'
+      flash[:danger] = "Correct the field"
+      redirect_to request.referrer
     end
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    flash[:success] = "User successfully destroyed"
     redirect_to request.referrer
   end
 

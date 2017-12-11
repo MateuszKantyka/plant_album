@@ -18,7 +18,7 @@ class MechanicsController < ApplicationController
       flash[:success] = "Mechanics updated"
       redirect_to request.referrer
     else
-      flash[:success] = "Error"
+      flash[:danger] = "Error"
       redirect_to request.referrer
     end
   end
@@ -38,9 +38,11 @@ class MechanicsController < ApplicationController
     @mechanic = Mechanic.new(mechanic_params)
     @mechanic.verification = true if current_user.admin
     if @mechanic.save
-      flash[:success] = "Mechanic added, wait to admin to verificate"
+      flash[:success] = "Mechanic added, wait to admin to verificate" unless current_user.admin
+      flash[:success] = "Mechanic added" if current_user.admin
       redirect_to request.referrer
     else
+      flash[:danger] = "Error"
       redirect_to request.referrer
     end
   end
