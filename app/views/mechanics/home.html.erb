@@ -5,8 +5,6 @@
     <p><%= "#{mechanic.city}, #{mechanic.post_code}, #{mechanic.address}" %> </p>
     <p>Phone: <%= mechanic.phone_number %> </p>
     <p>Rating: <%= mechanic.rating %> </p>
-    <p>Verification: <%= mechanic.verification %> </p>
-    <p> <%= link_to "Delete", mechanic, method: :delete %> </p>
-    <p> <%= link_to "Edit", edit_mechanic_path(mechanic)%> </p>
+    <p> <%= link_to "More info", mechanic %> </p>
   </div>
 <% end %>

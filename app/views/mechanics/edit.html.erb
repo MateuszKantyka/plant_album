@@ -1,0 +1,35 @@
+<div class="jumbotron">
+  <%= form_for(@mechanic) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control' %>
+
+    <%= f.label :post_code %>
+    <%= f.text_field :post_code, class: 'form-control' %>
+
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+
+    <%= f.label :rating %>
+    <%= f.text_field :rating, class: 'form-control' %>
+
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, class: 'form-control' %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+
+    <%= f.label :lat %>
+    <%= f.text_field :lat, class: 'form-control' %>
+
+    <%= f.label :lng %>
+    <%= f.text_field :lng, class: 'form-control' %>
+
+    <%= f.label(:verification, "Verification?") %>
+    <%= f.check_box(:verification) %>
+
+    <%= f.submit "Edit", class: "btn btn-primary" %>
+  <% end %>
+</div>
