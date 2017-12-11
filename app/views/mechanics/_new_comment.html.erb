@@ -1,28 +1,27 @@
-<div class="container">
-  <div class="jumbotron">
-    <%= form_for(:comment, url: comment_path) do |f| %>
+<div class="col-md-6 col-md-offset-3">
+  <br><hr>
+  <%= form_for(:comment, url: comment_path) do |f| %>
+    <%= f.label "Adding new comment:" %> <br>
+    <%= f.label :content %>
+    <%= f.text_field :content, class: 'form-control' %>
 
-      <%= f.label :content %>
-      <%= f.text_field :content, class: 'form-control' %>
+    <%= f.label :car %>
+    <%= f.text_field :car, class: 'form-control' %>
 
-      <%= f.label :car %>
-      <%= f.text_field :car, class: 'form-control' %>
+    <%= f.label :cost %>
+    <%= f.text_field :cost, class: 'form-control' %>
 
-      <%= f.label :cost %>
-      <%= f.text_field :cost, class: 'form-control' %>
+    <%= f.label :rating_general %>
+    <%= f.text_field :rating_general, class: 'form-control' %>
 
-      <%= f.label :rating_general %>
-      <%= f.text_field :rating_general, class: 'form-control' %>
+    <%= f.label :rating_cost %>
+    <%= f.text_field :rating_cost, class: 'form-control' %>
 
-      <%= f.label :rating_cost %>
-      <%= f.text_field :rating_cost, class: 'form-control' %>
+    <%= f.label :rating_time %>
+    <%= f.text_field :rating_time, class: 'form-control' %>
 
-      <%= f.label :rating_time %>
-      <%= f.text_field :rating_time, class: 'form-control' %>
+    <%= f.hidden_field :mechanic_id, :value => @mechanic.id %>
 
-      <%= f.hidden_field :mechanic_id, :value => @mechanic.id %>
-
-      <%= f.submit "Add comment", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+    <%= f.submit "Add comment", class: "btn btn-primary" %>
+  <% end %>
 </div>

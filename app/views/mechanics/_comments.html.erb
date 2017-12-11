@@ -1,8 +1,9 @@
-<h1>Comments:</h1>
+<div class="col-md-6 col-md-offset-3">
+  <h1>Comments:</h1>
+</div>
 
 <% @comments.each do |comment| %>
-<div class="container">
-  <div class="jumbotron" center>
+  <div class="col-md-6 col-md-offset-3">
     <%= comment.user.name%>
     <%= comment.created_at.strftime("%F")%>
     <br><br>
@@ -47,5 +48,4 @@
                              {:method => :delete, :remote => true} %>
     <% end %>
   </div>
-</div>
 <% end %>
