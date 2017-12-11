@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204214650) do
+ActiveRecord::Schema.define(version: 20171211191848) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -27,19 +27,8 @@ ActiveRecord::Schema.define(version: 20171204214650) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "mechanics", force: :cascade do |t|
-    t.string "name"
-    t.string "city"
-    t.string "post_code"
-    t.string "address"
-    t.float "rating"
-    t.string "phone_number"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "lat"
-    t.float "lng"
-  end
+# Could not dump table "mechanics" because of following StandardError
+#   Unknown type 'bool' for column 'verification'
 
   create_table "users", force: :cascade do |t|
     t.string "name"

@@ -18,7 +18,8 @@ Mechanic.create!( name: "Nowak autoMechanic s.c.",
                   phone_number: "985 547 857",
                   description: "Best mechanic in Cięcina",
                   lat: 49.6209646,
-                  lng: 19.1471016)
+                  lng: 19.1471016,
+                  verification: true)
 
 Mechanic.create!( name: "Kowalski optimusPrime",
                   city: "Żywiec",
@@ -28,7 +29,19 @@ Mechanic.create!( name: "Kowalski optimusPrime",
                   phone_number: "254 547 778",
                   description: "Make your car great again",
                   lat: 49.6892621,
-                  lng: 19.2048287)
+                  lng: 19.2048287,
+                  verification: true)
+
+Mechanic.create!( name: "<<Mechanic W.G.>>",
+                  city: "Węgierska Górka",
+                  post_code: "34-350",
+                  address: "Grunwaldzka 210",
+                  rating: 0,
+                  phone_number: "111 111 111",
+                  description: "Mechanics from wg",
+                  lat: 49.6892621,
+                  lng: 19.2048287,
+                  verification: false)
 
 Comment.create!( content: "Good!",
                  car: "Fiat126p",
@@ -41,7 +54,7 @@ Comment.create!( content: "Good!",
 
 Comment.create!( content: "Slow but fine!",
                  car: "Audi a3",
-                 cost: 100.25,
+                 cost: 120.25,
                  rating_cost: 5,
                  rating_time: 2,
                  rating_general: 5,
