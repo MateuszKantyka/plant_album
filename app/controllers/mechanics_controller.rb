@@ -1,4 +1,5 @@
 class MechanicsController < ApplicationController
+  before_action :admin_user, only: [:index, :edit, :update, :destroy]
 
   def new
     @mechanics = Mechanic.new
@@ -58,5 +59,11 @@ private
                                  :phone_number, :description, :lat,:lng,:verification)
   end
 
-
+  def admin_user
+    if logged_in?
+      redirect_to(root_url) unless current_user.admin
+    else
+      redirect_to(root_url)
+    end
+  end
 end

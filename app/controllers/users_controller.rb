@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :admin_user, only: [:index, :edit, :update]
+  before_action :admin_user, only: [:index, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -55,6 +55,10 @@ private
   end
 
   def admin_user
-    redirect_to(root_url) unless current_user.admin
+    if logged_in?
+      redirect_to(root_url) unless current_user.admin
+    else
+      redirect_to(root_url)
+    end
   end
 end
