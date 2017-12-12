@@ -8,4 +8,5 @@ class Mechanic < ApplicationRecord
   validates :phone_number, presence: true, length: { maximum: 15 }
   validates :description, presence: true, length: { maximum: 255 }
   attribute :verification, :boolean, default: -> {false}
+  attribute :rating, :float, default: -> {0}
 end
