@@ -34,6 +34,6 @@ class CommentsController < ApplicationController
       rating = rating + ((comment.rating_cost + comment.rating_time + comment.rating_general) / 3)
       i = i+1
     end
-    mechanic.update_attribute(:rating,rating / i)
+    mechanic.update_attribute(:rating,(rating / i).round(2))
   end
 end
