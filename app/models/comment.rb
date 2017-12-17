@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  has_one :mechanic
+  belongs_to :mechanic
 
   validates :content, presence: true, length: { maximum: 255 }
   validates :car, presence: true, length: { maximum: 100 }

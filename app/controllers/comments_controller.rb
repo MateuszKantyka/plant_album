@@ -5,10 +5,10 @@ class CommentsController < ApplicationController
     if @comment.save
       refresh_rating(@comment)
       flash[:success] = "Comment successfully created"
-      redirect_to request.referrer
+      redirect_to mechanic_path(@comment.mechanic)
     else
       flash[:danger] = "Fill in all fields"
-      redirect_to request.referrer
+      redirect_to mechanic_path(@comment.mechanic)
     end
   end
 
