@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Comment' do
   scenario 'user can create new comment' do
-    user = create(:user)
+    create(:user)
     create(:mechanic)
 
     visit root_path
@@ -24,5 +24,38 @@ RSpec.feature 'Comment' do
     click_on 'Add comment'
 
     expect(page).to have_content 'Comment successfully created'
+  end
+
+  scenario "user can't create new comment without fill up all data" do
+    user = create(:user)
+    create(:mechanic)
+
+    visit root_path
+    click_on 'Log in'
+    fill_in :session_email, with: 'mateusz.kantyka@hotmail.com'
+    fill_in :session_password, with: '12345678'
+    find('input[name="commit"]').click
+    click_on 'Home'
+    click_on 'More info'
+
+    expect(page).not_to have_content 'Delete'
+
+    fill_in :comment_content, with: 'My comment'
+    fill_in :comment_cost, with: 120
+    click_on 'Add comment'
+
+    expect(page).to have_content 'Fill in all fields'
+  end
+
+  scenario "user can't delete other users comments" do
+
+  end
+
+  scenario "admin can delete all comments" do
+
+  end
+
+  scenario "user can delete only his own comments" do
+
   end
 end
