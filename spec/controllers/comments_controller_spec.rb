@@ -24,7 +24,7 @@ RSpec.describe CommentsController, request: true do
         expect(response).to redirect_to(mechanic_path(mechanic))
       end
     end
-    
+
     context 'when params are not valid' do
       it 'display danger flash mesage and reload view' do
         user = create(:user)

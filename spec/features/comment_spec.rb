@@ -27,7 +27,7 @@ RSpec.feature 'Comment' do
   end
 
   scenario "user can't create new comment without fill up all data" do
-    user = create(:user)
+    create(:user)
     create(:mechanic)
 
     visit root_path
