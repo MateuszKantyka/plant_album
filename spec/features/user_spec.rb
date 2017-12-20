@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'User' do
+  scenario 'user can registe' do
+
+  end
+
   scenario 'user can log in' do
     user = create(:user)
     visit root_path
@@ -9,5 +13,13 @@ RSpec.feature 'User' do
     fill_in :session_password, with: '12345678'
     find('input[name="commit"]').click
     expect(page).to have_content user.name
+  end
+
+  scenario 'user can log out' do
+
+  end
+
+  scenario 'user can display mechanic site' do
+
   end
 end

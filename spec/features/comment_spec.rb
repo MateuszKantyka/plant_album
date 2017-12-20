@@ -1,17 +1,14 @@
 require 'rails_helper'
+include SessionsHelper
 
 RSpec.feature 'Comment' do
   scenario 'user can create new comment' do
-    create(:user)
+    user = create(:user)
     create(:mechanic)
 
-    visit root_path
-    click_on 'Log in'
-    fill_in :session_email, with: 'mateusz.kantyka@hotmail.com'
-    fill_in :session_password, with: '12345678'
-    find('input[name="commit"]').click
-    click_on 'Home'
-    click_on 'More info'
+    allow_any_instance_of(SessionsHelper).to receive(:current_user) { user }
+
+    visit 'mechanics/1'
 
     expect(page).not_to have_content 'Delete'
 
@@ -27,16 +24,12 @@ RSpec.feature 'Comment' do
   end
 
   scenario "user can't create new comment without fill up all data" do
-    create(:user)
+    user = create(:user)
     create(:mechanic)
 
-    visit root_path
-    click_on 'Log in'
-    fill_in :session_email, with: 'mateusz.kantyka@hotmail.com'
-    fill_in :session_password, with: '12345678'
-    find('input[name="commit"]').click
-    click_on 'Home'
-    click_on 'More info'
+    allow_any_instance_of(SessionsHelper).to receive(:current_user) { user }
+
+    visit 'mechanics/1'
 
     expect(page).not_to have_content 'Delete'
 
@@ -48,7 +41,13 @@ RSpec.feature 'Comment' do
   end
 
   scenario "user can't delete other users comments" do
+    user = create(:user)
+    create(:mechanic)
 
+    allow_any_instance_of(SessionsHelper).to receive(:current_user) { user }
+
+    visit root_path
+    click_on 'More info'
   end
 
   scenario "admin can delete all comments" do
