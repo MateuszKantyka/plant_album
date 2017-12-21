@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User' do
-  scenario 'user can registe' do
+  scenario 'user can sign up' do
 
   end
 

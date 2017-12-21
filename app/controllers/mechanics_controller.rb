@@ -19,7 +19,7 @@ class MechanicsController < ApplicationController
       flash[:success] = "Mechanics updated"
       redirect_to request.referrer
     else
-      flash[:danger] = "Error"
+      flash[:danger] = "Fill up all required fielsd"
       redirect_to request.referrer
     end
   end
@@ -43,7 +43,7 @@ class MechanicsController < ApplicationController
       flash[:success] = "Mechanic added" if current_user.admin
       redirect_to request.referrer
     else
-      flash[:danger] = "Error"
+      flash[:danger] = "Fill up all required fielsd"
       redirect_to request.referrer
     end
   end
