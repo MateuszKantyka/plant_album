@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = "Correct the field"
-      redirect_to request.referrer
+      redirect_to @user
     end
   end
 
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "User successfully destroyed"
-    redirect_to request.referrer
+    redirect_to @user
   end
 
   def show
