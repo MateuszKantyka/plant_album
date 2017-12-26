@@ -16,11 +16,11 @@ class MechanicsController < ApplicationController
   def update
     @mechanic = Mechanic.find(params[:id])
     if @mechanic.update_attributes(mechanic_params)
-      flash[:success] = "Mechanics updated"
-      redirect_to request.referrer
+      flash[:success] = 'Mechanics updated'
+      redirect_to mechanics_path
     else
-      flash[:danger] = "Fill up all required fielsd"
-      redirect_to request.referrer
+      flash[:danger] = 'Fill up all required fielsd'
+      redirect_to edit_mechanic_path(@mechanic)
     end
   end
 
@@ -31,20 +31,20 @@ class MechanicsController < ApplicationController
   def destroy
     @mechanic = Mechanic.find(params[:id])
     @mechanic.destroy
-    flash[:success] = "Mechanic deleted"
-    redirect_to request.referrer
+    flash[:success] = 'Mechanic deleted'
+    redirect_to mechanics_path
   end
 
   def create
     @mechanic = Mechanic.new(mechanic_params)
     @mechanic.verification = true if current_user.admin
     if @mechanic.save
-      flash[:success] = "Mechanic added, wait to admin to verificate" unless current_user.admin
-      flash[:success] = "Mechanic added" if current_user.admin
-      redirect_to request.referrer
+      flash[:success] = 'Mechanic added, wait to admin to verificate' unless current_user.admin
+      flash[:success] = 'Mechanic added' if current_user.admin
+      redirect_to root_path
     else
-      flash[:danger] = "Fill up all required fielsd"
-      redirect_to request.referrer
+      flash[:danger] = 'Fill up all required fielsd'
+      redirect_to notification_path
     end
   end
 
