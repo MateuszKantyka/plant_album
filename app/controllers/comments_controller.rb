@@ -4,10 +4,10 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       refresh_rating(@comment)
-      flash[:success] = "Comment successfully created"
+      flash[:success] = 'Comment successfully created'
       redirect_to mechanic_path(@comment.mechanic)
     else
-      flash[:danger] = "Fill in all fields"
+      flash[:danger] = 'Fill in all fields'
       redirect_to mechanic_path(@comment.mechanic)
     end
   end
@@ -16,8 +16,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     refresh_rating(@comment)
     @comment.destroy
-    flash[:success] = "Comment successfully destroyed"
-    redirect_to request.referrer
+    flash[:success] = 'Comment successfully destroyed'
+    redirect_to @comment.mechanic
   end
 
   def comment_params

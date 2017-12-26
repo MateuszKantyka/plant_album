@@ -26,13 +26,10 @@ RSpec.describe CommentsController, request: true do
     end
 
     context 'when params are not valid' do
-      it 'display danger flash mesage and reload view' do
+      it 'display danger flash message and reload view' do
         user = create(:user)
         mechanic = create(:mechanic, rating: 0)
         params =  { comment: { content: 'great job',
-                               cost: 120.5,
-                               rating_general: 5,
-                               rating_time: 5,
                                mechanic_id: mechanic.id,
                                user: user } }
 
@@ -40,6 +37,21 @@ RSpec.describe CommentsController, request: true do
         post(:create, params: params)
         expect(flash[:danger]).to eq 'Fill in all fields'
         expect(response).to redirect_to(mechanic_path(mechanic))
+      end
+    end
+  end
+
+  describe '#destroy' do
+    context 'when comments are provided' do
+      it 'delete comments form datebase, reload view and display successful flash message' do
+        user = create(:user)
+        mechanic = create(:mechanic)
+        comment = create(:comment, user_id: user.id, mechanic_id: mechanic.id)
+        allow_any_instance_of(SessionsHelper).to receive(:current_user) { user }
+
+        expect { delete(:destroy, params: {id: comment.id})}. to change {Comment.count}.from(1).to(0)
+        expect(flash[:success]).to eq 'Comment successfully destroyed'
+        expect(response).to redirect_to(comment.mechanic)
       end
     end
   end
