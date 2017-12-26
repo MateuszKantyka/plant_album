@@ -59,10 +59,10 @@ RSpec.describe UsersController, request: true do
 
   describe '#destroy' do
     context 'when user is provided' do
-      it 'delete user form datebase and display successful flash mesage' do
+      it 'delete user form datebase and display successful flash message' do
         user = create(:user, admin: true)
         allow_any_instance_of(SessionsHelper).to receive(:current_user) { user }
-        
+
         expect { delete(:destroy, params: {id: user.id})}. to change {User.count}.from(1).to(0)
         expect(flash[:success]).to eq 'User successfully destroyed'
         expect(response).to redirect_to(users_path)
