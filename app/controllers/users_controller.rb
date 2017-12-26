@@ -13,10 +13,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to request.referrer
+      redirect_to @user
     else
       flash[:danger] = "Correct the field"
-      redirect_to request.referrer
+      #render :edit
+      redirect_to edit_user_path(@user)
     end
   end
 
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = "Correct the field"
-      redirect_to @user
+      redirect_to signup_path
     end
   end
 
@@ -47,11 +48,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-private
+  private
 
   def user_params
     params.require(:user).permit(:name,:email,:password,
-                                 :password_confirmation, :admin)
+                                 :password_confirmation , :admin)
   end
 
   def admin_user
