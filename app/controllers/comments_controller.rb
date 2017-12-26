@@ -3,7 +3,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      refresh_rating(@comment)
+      #refresh_rating(@comment)
+      #mechanic = Mechanic.first
+      mechanic = Mechanic.first
+      RefreshRating.call(mechanic)
+      #RefreshRating.new(mechanic).call
       flash[:success] = 'Comment successfully created'
       redirect_to mechanic_path(@comment.mechanic)
     else
