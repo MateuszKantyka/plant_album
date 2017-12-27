@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'ransack'
 
 # ###
 #Testing
@@ -22,7 +23,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'spring-commands-rspec', :groups => [:development, :test]
 gem 'rspec-rails', :groups => [:development, :test]
-#gem 'factory_girl_rails', :groups => [:development, :test]
 gem 'capybara', :groups => [:development]
 
 group :development, :test do

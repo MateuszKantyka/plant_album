@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :admin_user, only: [:index, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def edit
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = "Correct the field"
-      #render :edit
       redirect_to edit_user_path(@user)
     end
   end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def user_params
     params.require(:user).permit(:name,:email,:password,
                                  :password_confirmation , :admin)

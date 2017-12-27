@@ -1,11 +1,20 @@
-<% @users.each do |user| %>
-  <div class="col-md-6 col-md-offset-3">
-    <hr>
-    <p> <%= user.name %> </p>
-    <p> <%= user.email %> </p>
-    <p>Admin = <%= user.admin %> </p>
-    <p>Create =  <%= user.created_at %> </p>
-    <p> <%= link_to "Delete", user, method: :delete %> </p>
-    <p> <%= link_to "Edit", edit_user_path(user)%> </p>
-  </div>
-<% end %>
+<div class="col-md-6 col-md-offset-3">
+  <table class="table table-striped" id="users">
+    <td><%= sort_link(@q, :name) %></td>
+    <td><%= sort_link(@q, :email) %></td>
+    <td><%= sort_link(@q, :admin) %></td>
+    <td><%= sort_link(@q, :created_at) %></td>
+    <td></td>
+    <td></td>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.admin %></td>
+        <td><%= user.created_at %></td>
+        <td><%= link_to "Edit", edit_user_path(user) %></td>
+        <td><%= link_to "Delete", user, method: :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
