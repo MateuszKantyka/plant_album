@@ -22,12 +22,13 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'spring-commands-rspec', :groups => [:development, :test]
 gem 'rspec-rails', :groups => [:development, :test]
-gem 'factory_girl_rails', :groups => [:development, :test]
+#gem 'factory_girl_rails', :groups => [:development, :test]
 gem 'capybara', :groups => [:development]
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
+  gem "factory_bot_rails"
   gem 'selenium-webdriver'
 end
 

@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :mechanic do
     name "Nowak autoMechanic s.c."
     city "Cięcina"
