@@ -1,12 +1,13 @@
 class MechanicsController < ApplicationController
   before_action :admin_user, only: [:index, :edit, :update, :destroy]
 
-  def new
-    @mechanics = Mechanic.new
+  def index
+    @q = Mechanic.ransack(params[:q])
+    @mechanics = @q.result(distinct: true)
   end
 
-  def index
-    @mechanics = Mechanic.all
+  def new
+    @mechanics = Mechanic.new
   end
 
   def edit
@@ -54,7 +55,7 @@ class MechanicsController < ApplicationController
   end
 
   private
-  
+
   def mechanic_params
     params.require(:mechanic).permit(:name,:city,:post_code,:address,:rating,
                                  :phone_number, :description, :lat,:lng,:verification)

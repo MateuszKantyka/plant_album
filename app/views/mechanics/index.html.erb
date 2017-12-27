@@ -1,12 +1,26 @@
-<% @mechanics.each do |mechanic| %>
-  <div class="col-md-6 col-md-offset-3">
-    <hr>
-    <p> <%= mechanic.name %> </p>
-    <p><%= "#{mechanic.city}, #{mechanic.post_code}, #{mechanic.address}" %> </p>
-    <p>Phone: <%= mechanic.phone_number %> </p>
-    <p>Rating: <%= mechanic.rating %> </p>
-    <p>Verification: <%= mechanic.verification %> </p>
-    <p> <%= link_to "Delete", mechanic, method: :delete %> </p>
-    <p> <%= link_to "Edit", edit_mechanic_path(mechanic)%> </p>
-  </div>
-<% end %>
+<div class="col-md-8 col-md-offset-2">
+  <table class="table table-striped" id="users">
+    <td><%= sort_link(@q, :name) %></td>
+    <td><%= sort_link(@q, :city) %></td>
+    <td><%= sort_link(@q, :post_code) %></td>
+    <td><%= sort_link(@q, :address) %></td>
+    <td><%= sort_link(@q, :phone_number) %></td>
+    <td><%= sort_link(@q, :rating) %></td>
+    <td><%= sort_link(@q, :verification) %></td>
+    <td></td>
+    <td></td>
+    <% @mechanics.each do |mechanic| %>
+    <tr>
+      <td><%= mechanic.name %></td>
+      <td><%= mechanic.city %></td>
+      <td><%= mechanic.post_code %></td>
+      <td><%= mechanic.address %></td>
+      <td><%= mechanic.phone_number %></td>
+      <td><%= mechanic.rating %></td>
+      <td><%= mechanic.verification %></td>
+      <td><%= link_to "Edit", edit_mechanic_path(mechanic) %></td>
+      <td><%= link_to "Delete", mechanic, method: :delete %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
