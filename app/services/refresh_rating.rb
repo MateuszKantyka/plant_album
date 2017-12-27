@@ -2,7 +2,7 @@ class RefreshRating
   attr_accessor :mechanic
 
   def initialize(mechanic)
-    @mehcanic = mechanic
+    @mechanic = mechanic
   end
 
   def self.call(mechanic)
@@ -10,19 +10,18 @@ class RefreshRating
   end
 
   def call
-    calculate_rating
+    set_rating
   end
 
   private
 
-  def calculate_rating
-    rating = 0.0
-    #mechanic = Mechanic.first
-    i = 0
-    mechanic.comments.each do |comment|
-      rating = rating + ((comment.rating_cost + comment.rating_time + comment.rating_general) / 3)
-      i = i+1
+  def set_rating
+    return mechanic.update_attribute(:rating, 0) if mechanic.comments.empty?
+
+    rating = mechanic.comments.map do |comment|
+      (comment.rating_cost + comment.rating_time + comment.rating_general) / 3.0
     end
-    mechanic.update_attribute(:rating,(rating / i).round(2))
+
+    mechanic.update_attribute(:rating, (rating.sum / rating.length).round(2))
   end
 end
