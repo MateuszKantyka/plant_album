@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+// git clone
 
-Things you may want to cover:
+bundle install
 
-* Ruby version
+// install yarn - https://yarnpkg.com/lang/en/docs/install/
 
-* System dependencies
+yarn add jquery
 
-* Configuration
+rails db:migrate
 
-* Database creation
+rails db:seed
 
-* Database initialization
+rails s
 
-* How to run the test suite
+// Example users:
+name: Example Admin
+email: admin@mail.com
+password: 12345678
+admin: true
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+name: Example User
+email: user@mail.com
+password: 12345678
+admin: false
