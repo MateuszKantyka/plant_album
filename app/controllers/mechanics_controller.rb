@@ -53,7 +53,8 @@ class MechanicsController < ApplicationController
     @comments = @mechanic.comments
   end
 
-private
+  private
+  
   def mechanic_params
     params.require(:mechanic).permit(:name,:city,:post_code,:address,:rating,
                                  :phone_number, :description, :lat,:lng,:verification)
