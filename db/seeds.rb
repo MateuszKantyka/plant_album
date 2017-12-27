@@ -1,11 +1,11 @@
-User.create!( name: 'Mateusz Kantyka',
-              email: 'mateusz.kantyka@hotmail.com',
+User.create!( name: 'Example Admin',
+              email: 'admin@mail.com',
               password: '12345678',
               password_confirmation: '12345678',
               admin: true)
 
-User.create!( name: 'Justyna Kawa',
-              email: 'juskaw123@onet.pl',
+User.create!( name: 'Example User',
+              email: 'user@mail.com',
               password: '12345678',
               password_confirmation: '12345678',
               admin: false)
