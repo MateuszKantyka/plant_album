@@ -9,7 +9,7 @@ RSpec.feature 'User' do
     fill_in :user_password, with: '12345678'
     fill_in :user_password_confirmation, with: '12345678'
 
-    find('input[name="Sign up button"]').click
+    find('input[id="Sign up button"]').click
     expect(page).to have_content 'User successfully created'
     expect(User.last.name).to eq('Mateusz')
   end

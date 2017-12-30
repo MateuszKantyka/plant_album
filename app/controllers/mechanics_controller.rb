@@ -7,7 +7,7 @@ class MechanicsController < ApplicationController
   end
 
   def new
-    @mechanics = Mechanic.new
+    @mechanic = Mechanic.new
   end
 
   def edit

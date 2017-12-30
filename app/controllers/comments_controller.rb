@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   end
 
   private
-  
+
   def comment_params
     params.require(:comment).permit(:content,:car,:cost, :rating_general,
                                  :rating_cost, :rating_time, :mechanic_id)
