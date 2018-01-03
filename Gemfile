@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'ransack'
 gem 'simple_form'
+gem 'rubocop', require: false
 
 # ###
 #Testing
